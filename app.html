@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura — High-Fidelity Event Discovery & Booking Application</title>
+  <meta name="description" content="Production-quality high-fidelity user interface prototype for multi-category event discovery and booking. UI/UX project by Deepti Baskar [44110145], Dept of CSE, Sathyabama Institute of Science and Technology.">
+  <link rel="stylesheet" href="app.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+<body>
+
+  <!-- Top Master Evaluator Toolbar -->
+  <header class="master-toolbar">
+    <div class="toolbar-brand">
+      <span class="toolbar-logo-pill">✨ AURA LIVE</span>
+      <div>
+        <div class="toolbar-title">High-Fidelity Application Prototype</div>
+        <div class="toolbar-meta">Deepti Baskar [44110145] • Mentor: Dr. Leena Sivaguru • Dept. of CSE</div>
+      </div>
+    </div>
+
+    <!-- Quick Jump Screen Selector -->
+    <div class="screen-pills-container">
+      <button class="screen-pill active" data-screen="screen-1">1: Home</button>
+      <button class="screen-pill" data-screen="screen-2">2: Search/Filter</button>
+      <button class="screen-pill" data-screen="screen-3">3: Detail</button>
+      <button class="screen-pill" data-screen="screen-4">4: Ticket & Seat</button>
+      <button class="screen-pill" data-screen="screen-5">5: Review</button>
+      <button class="screen-pill" data-screen="screen-6">6: Checkout & Pass</button>
+      <button class="screen-pill" data-screen="screen-7">7: Saved & Profile</button>
+      <button class="screen-pill" data-screen="screen-8">8: AI Concierge</button>
+
+      <button id="theme-mode-toggle" class="screen-pill" style="background:#334155;" onclick="window.auraApp.toggleTheme()">
+        🌙 Dark
+      </button>
+      <a href="design-system.html" class="screen-pill" style="text-decoration:none; background:#4338CA; color:#FFFFFF;">
+        🎨 Tokens
+      </a>
+      <a href="index.html" class="screen-pill" style="text-decoration:none; background:#374151; color:#CBD5E1;">
+        📐 Wireframes
+      </a>
+    </div>
+  </header>
+
+  <!-- Prototype Stage (Phone + Side Specification Card) -->
+  <main class="app-workspace">
+
+    <!-- Smartphone Hardware Shell (400 x 860px) -->
+    <div class="smartphone-container">
+
+      <!-- Dynamic Island Notch -->
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <!-- Floating Non-Intrusive Notification Toast with Screen Reader Announcement -->
+      <div id="app-toast" class="app-toast-pill" role="status" aria-live="polite" style="display:none;"></div>
+
+      <!-- Scrollable Viewport Content Area -->
+      <div id="app-viewport" class="phone-viewport" role="region" aria-label="Aura Event Application Content">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Persistent 4-Pillar Bottom Navigation -->
+      <nav id="main-bottom-nav" class="app-bottom-nav">
+        <div class="nav-tab active" data-tab="explore">
+          <span class="tab-icon">🏠</span>
+          <span>Explore</span>
+        </div>
+        <div class="nav-tab" data-tab="browse">
+          <span class="tab-icon">🔍</span>
+          <span>Browse</span>
+        </div>
+        <div class="nav-tab" data-tab="saved">
+          <span class="tab-icon">♡</span>
+          <span>Saved</span>
+          <span id="saved-badge-counter" class="nav-badge-count" style="display:none;">0</span>
+        </div>
+        <div class="nav-tab" data-tab="tickets">
+          <span class="tab-icon">🎟️</span>
+          <span>Tickets</span>
+        </div>
+      </nav>
+
+      <!-- Location Selector Modal (Overlay) -->
+      <div id="location-modal-sheet" class="modal-overlay-backdrop">
+        <div class="bottom-sliding-modal">
+          <div class="modal-drag-grabber"></div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-family:var(--font-heading); font-size:16px; font-weight:800;">Select Your City</h3>
+            <button style="border:none; background:transparent; font-size:18px; font-weight:700; cursor:pointer;" onclick="window.auraApp.closeLocationModal()">✕</button>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted);">Explore live concerts, stand-up comedy, and workshops happening near you.</p>
+
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="tier-select-card" style="margin:0; cursor:pointer;" onclick="window.auraApp.selectCity('Chennai')">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <strong style="font-size:14px;">📍 Chennai</strong>
+                  <div style="font-size:11px; color:var(--text-muted);">Tamil Nadu • 14 Live Events</div>
+                </div>
+                <span style="font-size:12px; color:var(--primary); font-weight:700;">Active ✓</span>
+              </div>
+            </div>
+
+            <div class="tier-select-card" style="margin:0; cursor:pointer;" onclick="window.auraApp.selectCity('Bengaluru')">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <strong style="font-size:14px;">📍 Bengaluru</strong>
+                  <div style="font-size:11px; color:var(--text-muted);">Karnataka • 28 Live Events</div>
+                </div>
+                <span style="font-size:12px; color:var(--text-muted);">Select ➔</span>
+              </div>
+            </div>
+
+            <div class="tier-select-card" style="margin:0; cursor:pointer;" onclick="window.auraApp.selectCity('Mumbai')">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <strong style="font-size:14px;">📍 Mumbai</strong>
+                  <div style="font-size:11px; color:var(--text-muted);">Maharashtra • 35 Live Events</div>
+                </div>
+                <span style="font-size:12px; color:var(--text-muted);">Select ➔</span>
+              </div>
+            </div>
+
+            <div class="tier-select-card" style="margin:0; cursor:pointer;" onclick="window.auraApp.selectCity('Hyderabad')">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <strong style="font-size:14px;">📍 Hyderabad</strong>
+                  <div style="font-size:11px; color:var(--text-muted);">Telangana • 18 Live Events</div>
+                </div>
+                <span style="font-size:12px; color:var(--text-muted);">Select ➔</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faceted Filter Modal (Overlay) -->
+      <div id="filter-modal-sheet" class="modal-overlay-backdrop" role="dialog" aria-modal="true" aria-labelledby="filter-modal-title">
+        <div class="bottom-sliding-modal">
+          <div class="modal-drag-grabber"></div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h3 id="filter-modal-title" style="font-family:var(--font-heading); font-size:16px; font-weight:800;">Faceted Search & Filters</h3>
+            <button class="circular-nav-btn" style="border:none; background:transparent; font-size:18px; font-weight:700; width:44px; height:44px; cursor:pointer;" aria-label="Close filter sheet" onclick="window.auraApp.closeFilterModal()">✕</button>
+          </div>
+
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-subtle);">When</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="q-chip" onclick="window.auraApp.toggleQuickChip('anytime')">Anytime</button>
+            <button class="q-chip" onclick="window.auraApp.toggleQuickChip('today')">Today</button>
+            <button class="q-chip" onclick="window.auraApp.toggleQuickChip('tomorrow')">Tomorrow</button>
+            <button class="q-chip active" onclick="window.auraApp.toggleQuickChip('weekend')">This Weekend ✓</button>
+          </div>
+
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-subtle); margin-top:6px;">Price Range</div>
+          <div>
+            <input id="filter-price-slider" type="range" min="200" max="2500" step="50" value="1000" style="width:100%; accent-color:var(--primary);" oninput="document.getElementById('filter-max-price-label').textContent = 'Max: ₹' + Number(this.value).toLocaleString('en-IN')">
+            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:2px;">
+              <span>₹200</span>
+              <span id="filter-max-price-label" style="font-weight:700; color:var(--primary);">Max: ₹1,000</span>
+              <span>₹2,500+</span>
+            </div>
+          </div>
+
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-subtle); margin-top:6px;">Category</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px;">
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" checked onchange="window.auraApp.setCategory(this.checked ? 'Workshops' : 'All')"> Workshops</label>
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" checked onchange="window.auraApp.setCategory(this.checked ? 'Comedy' : 'All')"> Stand-Up Comedy</label>
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" checked onchange="window.auraApp.setCategory(this.checked ? 'Music' : 'All')"> Live Concerts</label>
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;"><input type="checkbox" onchange="window.auraApp.setCategory(this.checked ? 'Sports' : 'All')"> Sports Screenings</label>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:12px;">
+            <button class="btn btn-secondary" style="flex:1; height:44px;" onclick="window.auraApp.resetFilters(); window.auraApp.closeFilterModal();">Reset All</button>
+            <button class="btn-primary-action" style="flex:2; height:44px;" onclick="window.auraApp.closeFilterModal(); window.auraApp.navigateTo('screen-2');">Apply Filters ➔</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ambient Floating AI Concierge Drawer (Overlay) -->
+      <div id="ai-concierge-sheet" class="ai-floating-sheet">
+        <div style="background:var(--primary); color:#FFFFFF; padding:12px 16px; border-radius:var(--radius-lg) var(--radius-lg) 0 0; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:16px;">✨</span>
+            <span style="font-family:var(--font-heading); font-size:14px; font-weight:800;">Aura Concierge AI</span>
+            <span class="badge-tag-pill" style="background:rgba(255,255,255,0.2); color:#FFFFFF; font-size:9px;">ONLINE</span>
+          </div>
+          <button style="background:transparent; border:none; color:#FFFFFF; font-size:18px; font-weight:700; cursor:pointer;" onclick="window.auraApp.toggleAiDrawer()">✕</button>
+        </div>
+
+        <div id="ai-chat-messages" class="ai-chat-feed">
+          <div class="chat-bubble bot">
+            👋 Hi Aravind! Looking for something fun to do in Chennai this weekend?
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:4px;">
+            <span class="prompt-suggestion-pill" onclick="window.auraApp.sendPrompt('Couples workshops on Sunday')">🎨 Workshops on Sunday</span>
+            <span class="prompt-suggestion-pill" onclick="window.auraApp.sendPrompt('Standup comedy under ₹500')">🎭 Comedy under ₹500</span>
+            <span class="prompt-suggestion-pill" onclick="window.auraApp.sendPrompt('Beach live acoustic music')">🎵 Live acoustic beach music</span>
+          </div>
+        </div>
+
+        <div style="padding:10px 14px; border-top:1px solid var(--border-subtle); display:flex; gap:8px; background:var(--bg-surface);">
+          <input type="text" placeholder="Ask AI: 'Cheap comedy near Alwarpet'..." style="flex:1; height:36px; padding:0 12px; border:1px solid var(--border-default); border-radius:var(--radius-sm); font-size:12px; outline:none;" onkeydown="if(event.key==='Enter'&&this.value){window.auraApp.sendPrompt(this.value); this.value='';}">
+          <button class="btn-primary-action" style="padding:0 14px; height:36px; font-size:12px;" onclick="const inp=this.previousElementSibling; if(inp.value){window.auraApp.sendPrompt(inp.value); inp.value='';}">Ask</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Side Evaluator Specification Panel -->
+    <aside class="side-evaluator-card">
+      <div>
+        <span class="badge-tag-pill curated">HIGH-FIDELITY PHASE</span>
+        <span class="badge-tag-pill" style="margin-left:4px;">AURA DESIGN SYSTEM</span>
+      </div>
+
+      <h2 id="spec-screen-title">SCR-01: Home & Curated Discovery Feed</h2>
+      <p id="spec-screen-summary">Vibrant consumer discovery hub featuring an editable location selector, prominent search, category shortcuts, personalized recommendations, and high-impact 2:3 vertical poster cards with upfront "All-in" pricing.</p>
+
+      <h3>Key UX & Ergonomic Decisions</h3>
+      <ul id="spec-decisions-list">
+        <li>Editable Location: Instant modal allows switching between Chennai, Bengaluru, Mumbai, etc.</li>
+        <li>Radical Transparency: Upfront starting price with "All-in" tag prevents deceptive base-price anchors.</li>
+        <li>Thumb Ergonomics: 4-pillar persistent navigation with active pill indicators and badge counts.</li>
+      </ul>
+
+      <div style="height:1px; background:var(--border-subtle); margin:8px 0;"></div>
+
+      <h3>Project Metadata & Academic Context</h3>
+      <p style="font-size:12px; line-height:1.5;">
+        <strong>Project:</strong> Professional Training I (PT1) — UI/UX Study on Streamlining Multi-Category Event Discovery & Booking Platforms<br>
+        <strong>Student:</strong> Deepti Baskar [44110145]<br>
+        <strong>Institution:</strong> Sathyabama Institute of Science and Technology<br>
+        <strong>Mentor:</strong> Dr. Leena Sivaguru, Associate Professor, Dept. of CSE
+      </p>
+
+      <div style="height:1px; background:var(--border-subtle); margin:8px 0;"></div>
+
+      <h3>Interactive Testing Guidelines</h3>
+      <p style="font-size:12px; line-height:1.5;">
+        • Click any screen button in the top bar to test transitions.<br>
+        • Click the <strong>"📍 Chennai ▾"</strong> pill to test editable location switching.<br>
+        • Click <strong>"✨ Ask AI"</strong> to trigger the ambient conversational discovery concierge.<br>
+        • Walk through the core booking flow: Select event ➔ Pick tier ➔ Review transparent fee math ➔ 1-Tap simulated pay ➔ Get digital QR entry pass.
+      </p>
+    </aside>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

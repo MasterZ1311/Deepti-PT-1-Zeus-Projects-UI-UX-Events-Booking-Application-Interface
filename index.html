@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Category Event Discovery & Booking — Low-Fidelity Wireframes Prototype</title>
+  <meta name="description" content="Low-fidelity grayscale wireframes for multi-category event discovery and booking platform. UI/UX study by Deepti Baskar (44110145), Dept of CSE.">
+  <link rel="stylesheet" href="wireframes.css">
+</head>
+<body>
+
+  <!-- Top Evaluator Toolbar -->
+  <header class="evaluator-toolbar">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <h1>Event Discovery & Booking Platform</h1>
+      <span class="badge">Grayscale Wireframe Prototype</span>
+      <span class="badge" style="background:#4B5563;">Deepti Baskar [44110145] • PT1</span>
+    </div>
+
+    <!-- Quick Screen Switcher -->
+    <div class="screen-switcher-bar">
+      <span style="font-size:11px; color:#9CA3AF; margin-right:4px;">Jump to Screen:</span>
+      <button class="screen-btn active" data-screen="screen-1">1: Home</button>
+      <button class="screen-btn" data-screen="screen-2">2: Category</button>
+      <button class="screen-btn" data-screen="screen-3">3: Search/Filter</button>
+      <button class="screen-btn" data-screen="screen-4">4: Event Detail</button>
+      <button class="screen-btn" data-screen="screen-5">5: Slot & Tier</button>
+      <button class="screen-btn" data-screen="screen-6">6: Summary</button>
+      <button class="screen-btn" data-screen="screen-7">7: Checkout</button>
+      <button class="screen-btn" data-screen="screen-8">8: Digital Pass</button>
+      <button class="screen-btn" data-screen="screen-9">9: Saved</button>
+      <button class="screen-btn" data-screen="screen-10">10: Profile</button>
+      <button class="screen-btn" data-screen="screen-11">11: Edge States</button>
+    </div>
+  </header>
+
+  <!-- Prototype Stage (Phone Frame + UX Notes Panel) -->
+  <main class="prototype-stage">
+    
+    <!-- Smartphone Viewport Frame (393 x 852px) -->
+    <div class="phone-frame">
+      <!-- Dynamic Island / Sensor Notch -->
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <!-- Scrollable Screen Viewport Container -->
+      <div id="screen-viewport" class="screen-viewport">
+        <!-- Rendered dynamically by wireframes.js -->
+      </div>
+
+      <!-- Global Bottom Navigation Bar (4 Pillars) -->
+      <nav id="bottom-nav-bar" class="bottom-nav">
+        <div class="nav-item active" data-tab="explore">
+          <span class="icon">🏠</span>
+          <span>Explore</span>
+        </div>
+        <div class="nav-item" data-tab="browse">
+          <span class="icon">🔍</span>
+          <span>Browse</span>
+        </div>
+        <div class="nav-item" data-tab="saved">
+          <span class="icon">♡</span>
+          <span>Saved</span>
+          <span id="saved-nav-badge" class="nav-badge" style="display:none;">0</span>
+        </div>
+        <div class="nav-item" data-tab="tickets">
+          <span class="icon">🎟️</span>
+          <span>Tickets</span>
+        </div>
+      </nav>
+
+      <!-- Faceted Filter Sheet Modal (Overlay) -->
+      <div id="filter-sheet-modal" class="wire-sheet-backdrop">
+        <div class="wire-bottom-sheet">
+          <div class="sheet-grabber"></div>
+          <div class="sheet-header">
+            <h3>Faceted Search & Filters</h3>
+            <button class="sheet-close-btn" onclick="window.wireframeApp.closeFilterSheet()">✕</button>
+          </div>
+
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-muted);">Date Availability</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="quick-chip">Anytime</button>
+            <button class="quick-chip">Today</button>
+            <button class="quick-chip">Tomorrow</button>
+            <button class="quick-chip active">This Weekend ✓</button>
+          </div>
+
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-top:8px;">Price Range</div>
+          <div>
+            <input type="range" min="0" max="3000" value="1000" style="width:100%; accent-color:#111827;">
+            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-secondary); margin-top:4px;">
+              <span>₹0</span>
+              <span>Max: ₹1,000</span>
+              <span>₹3,000+</span>
+            </div>
+          </div>
+
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-top:8px;">Category</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:12px;">
+            <label><input type="checkbox" checked> Workshops</label>
+            <label><input type="checkbox"> Stand-Up Comedy</label>
+            <label><input type="checkbox"> Live Music</label>
+            <label><input type="checkbox"> Sports Screenings</label>
+          </div>
+
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-top:8px;">Neighborhood</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <span class="quick-chip active">Mylapore ✓</span>
+            <span class="quick-chip active">Alwarpet ✓</span>
+            <span class="quick-chip">Besant Nagar</span>
+            <span class="quick-chip">OMR</span>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:12px;">
+            <button class="wire-btn secondary" style="flex:1;" onclick="alert('Filters reset to default.')">Reset All</button>
+            <button class="wire-btn" style="flex:2;" onclick="window.wireframeApp.applyFilters()">Show 4 Events ➔</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating AI Discovery Concierge Drawer (Overlay) -->
+      <div id="ai-drawer" class="ai-drawer-overlay">
+        <div class="ai-chat-header">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:14px;">✨</span>
+            <span style="font-size:13px; font-weight:700;">Event Concierge AI</span>
+            <span class="wire-badge" style="background:#374151; color:#FFFFFF; border:none; font-size:9px;">ONLINE</span>
+          </div>
+          <button class="sheet-close-btn" style="color:#FFFFFF;" onclick="window.wireframeApp.toggleAiDrawer()">✕</button>
+        </div>
+
+        <div id="ai-chat-body" class="ai-chat-body">
+          <div class="ai-bubble">
+            👋 Hi Aravind! What kind of experience are you looking for in Chennai?
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:4px; margin:4px 0;">
+            <span class="ai-prompt-chip" onclick="window.wireframeApp.sendAiPrompt('Couples workshops this Sunday')">🎨 Couples workshops this Sunday</span>
+            <span class="ai-prompt-chip" onclick="window.wireframeApp.sendAiPrompt('Standup comedy under ₹500')">🎭 Comedy under ₹500</span>
+            <span class="ai-prompt-chip" onclick="window.wireframeApp.sendAiPrompt('Acoustic live music nearby')">🎵 Acoustic live music nearby</span>
+          </div>
+        </div>
+
+        <div style="padding:10px; border-top:1px solid var(--border-subtle); display:flex; gap:6px; background:#FFFFFF;">
+          <input type="text" placeholder="Ask AI: 'Cheap comedy this Friday'..." style="flex:1; padding:6px 10px; font-size:12px; border:1px solid var(--border-default); border-radius:var(--radius-sm);" onkeydown="if(event.key==='Enter'&&this.value){window.wireframeApp.sendAiPrompt(this.value); this.value='';}">
+          <button class="wire-btn" style="padding:6px 12px; font-size:11px;" onclick="const inp=this.previousElementSibling; if(inp.value){window.wireframeApp.sendAiPrompt(inp.value); inp.value='';}">Ask</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- UX Evaluator Specification & Heuristics Panel -->
+    <aside class="ux-notes-panel">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <span class="badge-tag">UX SPECIFICATION</span>
+        <span class="badge-tag">LOW-FIDELITY PHASE</span>
+      </div>
+
+      <h2 id="ux-note-title">SCR-WF-01: Home & Discovery Feed</h2>
+      <p id="ux-note-summary">Mobile-first omni-discovery engine combining curated hero showcase with frictionless multi-category horizontal pills.</p>
+
+      <h3>Heuristic & Ergonomic Focus</h3>
+      <ul id="ux-note-heuristics">
+        <li>Hick’s Law: Category pills let users jump straight to their intent without visual paralysis.</li>
+        <li>Radical Transparency: Every card explicitly states "All-in" starting price to establish trust.</li>
+        <li>Fitts’s Law: 4-pillar persistent bottom navigation within natural one-handed thumb zone.</li>
+      </ul>
+
+      <div class="wire-divider"></div>
+
+      <h3>Project Metadata</h3>
+      <p style="font-size:12px;">
+        <strong>Study:</strong> Professional Training I (PT1) — UI/UX<br>
+        <strong>Student:</strong> Deepti Baskar [44110145]<br>
+        <strong>Department:</strong> Computer Science & Engineering<br>
+        <strong>Institution:</strong> Sathyabama Institute of Science and Technology<br>
+        <strong>Mentor:</strong> Dr. Leena Sivaguru, Associate Professor
+      </p>
+
+      <div class="wire-divider"></div>
+
+      <h3>Evaluator Navigation Tips</h3>
+      <p style="font-size:12px;">
+        • Click any screen button in the top bar to jump directly.<br>
+        • Or click through the smartphone frame to experience the end-to-end booking flow.<br>
+        • Test edge states (Empty Search, Sold Out, Loading, Payment Fail) via Screen 11.
+      </p>
+    </aside>
+
+  </main>
+
+  <script src="wireframes.js"></script>
+</body>
+</html>

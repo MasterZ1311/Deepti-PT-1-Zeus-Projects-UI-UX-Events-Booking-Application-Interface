@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Design System — Production Component & Token Showcase</title>
+  <meta name="description" content="Production visual design system for multi-category event discovery and booking application. By Deepti Baskar (44110145), Sathyabama Institute of Science and Technology.">
+  <link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+
+  <div class="showcase-container">
+
+    <!-- Top Showcase Header -->
+    <header class="showcase-header">
+      <div>
+        <div class="brand-badge">✨ AURA DESIGN SYSTEM v1.0</div>
+        <h1>Event Discovery & Booking Design System</h1>
+        <p style="font-size:14px; color:var(--color-text-secondary); margin-top:4px;">
+          Reference: Apple HIG + Material Design 3 • UI/UX Study by <strong>Deepti Baskar [44110145]</strong> • Mentor: <strong>Dr. Leena Sivaguru</strong>
+        </p>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-label">Dark Mode</span>
+        </button>
+        <a href="index.html" class="btn btn-secondary" style="font-size:13px; text-decoration:none;">View Wireframe Prototype ➔</a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: COLOR PALETTE & TOKENS -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>1. Color Tokens & Semantic Palette</span>
+        <span class="tag">WCAG 2.1 AA / AAA Compliant</span>
+      </div>
+      <p style="font-size:14px; color:var(--color-text-secondary);">
+        An original, contemporary entertainment palette anchored by <strong>Ultraviolet (`#5833EA`)</strong> for digital velocity and <strong>Sunset Coral (`#FF5C38`)</strong> for live stage energy.
+      </p>
+
+      <div class="swatch-grid">
+        <!-- Primary -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-primary); color:#FFFFFF;">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">Primary Anchor</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-primary</strong>
+            <span>#5833EA / #6366F1</span>
+          </div>
+        </div>
+
+        <!-- Secondary -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-secondary); color:#FFFFFF;">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">Urgency & Live</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-secondary</strong>
+            <span>#FF5C38 / #FF7052</span>
+          </div>
+        </div>
+
+        <!-- Canvas -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-bg-canvas); border-bottom:1px solid var(--color-border-subtle);">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.06); padding:2px 6px; border-radius:4px;">Canvas</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-bg-canvas</strong>
+            <span>#F8F9FC / #0B0F19</span>
+          </div>
+        </div>
+
+        <!-- Surface -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-bg-surface); border-bottom:1px solid var(--color-border-subtle);">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.06); padding:2px 6px; border-radius:4px;">Card Surface</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-bg-surface</strong>
+            <span>#FFFFFF / #131B2E</span>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-success); color:#FFFFFF;">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">Confirmed Ticket</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-success</strong>
+            <span>#10B981 (Emerald)</span>
+          </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-warning); color:#FFFFFF;">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">Timer Hold</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-warning</strong>
+            <span>#F59E0B (Amber)</span>
+          </div>
+        </div>
+
+        <!-- Error -->
+        <div class="swatch-card">
+          <div class="swatch-color" style="background:var(--color-error); color:#FFFFFF;">
+            <strong style="font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">Error Alert</strong>
+          </div>
+          <div class="swatch-info">
+            <strong>--color-error</strong>
+            <span>#EF4444 (Crimson)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BUTTONS & INTERACTIVE STATES -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>2. Buttons & Seven Interactive States</span>
+        <span class="tag">Fitts’s Law: 44px Minimum</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:8px;">Primary Actions</div>
+          <div class="btn-row">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-primary"><span style="font-size:16px;">🎟️</span> With Leading Icon</button>
+            <button class="btn btn-primary btn-loading">Loading Button</button>
+            <button class="btn btn-primary btn-disabled">Disabled State</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:8px;">Secondary & Tertiary Actions</div>
+          <div class="btn-row">
+            <button class="btn btn-secondary">Secondary Outline</button>
+            <button class="btn btn-ghost">Ghost Tertiary</button>
+            <button class="btn btn-secondary" style="border-radius:50%; width:44px; height:44px; padding:0;">♡</button>
+            <button class="btn btn-secondary" style="border-radius:50%; width:44px; height:44px; padding:0;">↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CHIPS & CATEGORY NAVIGATION -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>3. Category Pills & Filter Chips</span>
+        <span class="tag">M3 Chip Taxonomy</span>
+      </div>
+
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:8px;">Category Pills (Omni-Bar)</div>
+        <div class="chip-row">
+          <span class="chip chip-pill selected">✨ All Experiences</span>
+          <span class="chip chip-pill">🎭 Stand-Up Comedy</span>
+          <span class="chip chip-pill">🎵 Live Music & Concerts</span>
+          <span class="chip chip-pill">🎨 Creative Workshops</span>
+          <span class="chip chip-pill">⚽ Sports Screenings</span>
+          <span class="chip chip-pill">🎬 Indie Movies</span>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:8px;">Faceted Filter Chips</div>
+        <div class="chip-row">
+          <span class="chip selected">✓ This Weekend <span style="font-size:11px; margin-left:4px;">✕</span></span>
+          <span class="chip selected">✓ Under ₹600 <span style="font-size:11px; margin-left:4px;">✕</span></span>
+          <span class="chip">📍 Mylapore & Alwarpet</span>
+          <span class="chip">♿ Wheelchair Accessible</span>
+          <span class="chip btn-disabled">✕ Outdoor Lawn (0)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FORM INPUTS & SEARCH BARS -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>4. Input Fields & Search Bars</span>
+        <span class="tag">WCAG 2.4.7 Focus Ring</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+        <!-- Search Input -->
+        <div class="input-group">
+          <label class="input-label">Omni-Search Bar</label>
+          <div style="position:relative;">
+            <input type="text" class="input-box" style="padding-left:36px;" value="Pottery workshop Mylapore" placeholder="Search events, artists...">
+            <span style="position:absolute; left:12px; top:12px; font-size:14px; color:var(--color-text-muted);">🔍</span>
+            <span style="position:absolute; right:12px; top:12px; font-size:14px; color:var(--color-text-muted); cursor:pointer;">✕</span>
+          </div>
+          <span class="input-helper">Instant search matching across title, genre, and venue</span>
+        </div>
+
+        <!-- Default Field -->
+        <div class="input-group">
+          <label class="input-label">Full Name (Attendee Delivery)</label>
+          <input type="text" class="input-box" value="Aravind Kumar" placeholder="e.g. Aravind Kumar">
+          <span class="input-helper">Tickets will be addressed to this name</span>
+        </div>
+
+        <!-- Error State -->
+        <div class="input-group">
+          <label class="input-label">Email Address (Pass Delivery)</label>
+          <input type="email" class="input-box error" value="aravind.invalid@" placeholder="name@domain.com">
+          <span class="input-helper error-text">⚠️ Please enter a valid email address for digital pass delivery</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EVENT CARDS & POSTER CROPPING -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>5. Production Event Cards (2:3 Aspect Ratio)</span>
+        <span class="tag">Radical "All-in" Price Display</span>
+      </div>
+
+      <div class="cards-showcase-grid">
+        <!-- Card 1: Comedy -->
+        <div class="aura-event-card">
+          <div class="card-media-wrapper">
+            <!-- Simulated Poster Image -->
+            <div style="width:100%; height:100%; background:linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%); display:flex; align-items:center; justify-content:center; color:#FFFFFF; font-family:var(--font-display); font-size:20px; font-weight:800; text-align:center; padding:16px;">
+              CHENNAI<br>COMEDY RIOT
+            </div>
+            <div class="card-scrim"></div>
+            <div class="card-top-badges">
+              <span class="badge-pill urgency">⚡ 4 Seats Left</span>
+              <button class="heart-btn active" title="Shortlisted">♥</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre-row">
+              <span>STAND-UP COMEDY</span>
+              <span style="color:var(--color-warning);">★ 4.8</span>
+            </div>
+            <div class="card-title">Chennai Laugh Riot ft. Local All-Stars</div>
+            <div class="card-meta-detail">📅 Sat, 24 Oct • 7:30 PM</div>
+            <div class="card-meta-detail">📍 Medai - The Stage, Alwarpet</div>
+            <div class="card-footer">
+              <div>
+                <span class="all-in-price">₹499</span>
+                <span class="all-in-tag">All-in</span>
+              </div>
+              <button class="btn btn-primary" style="padding:6px 14px; font-size:12px; min-height:36px;">Book ➔</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Workshop -->
+        <div class="aura-event-card">
+          <div class="card-media-wrapper">
+            <div style="width:100%; height:100%; background:linear-gradient(135deg, #78350F 0%, #B45309 50%, #D97706 100%); display:flex; align-items:center; justify-content:center; color:#FFFFFF; font-family:var(--font-display); font-size:18px; font-weight:800; text-align:center; padding:16px;">
+              POTTERY<br>MASTERCLASS
+            </div>
+            <div class="card-scrim"></div>
+            <div class="card-top-badges">
+              <span class="badge-pill">Curated</span>
+              <button class="heart-btn" title="Save to Shortlist">♡</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre-row">
+              <span>WORKSHOP</span>
+              <span style="color:var(--color-warning);">★ 4.9</span>
+            </div>
+            <div class="card-title">Beginner Wheel Pottery Masterclass</div>
+            <div class="card-meta-detail">📅 Sat, 24 Oct • 10:00 AM</div>
+            <div class="card-meta-detail">📍 Artisan Studio, Mylapore</div>
+            <div class="card-footer">
+              <div>
+                <span class="all-in-price">₹850</span>
+                <span class="all-in-tag">All-in</span>
+              </div>
+              <button class="btn btn-primary" style="padding:6px 14px; font-size:12px; min-height:36px;">Book ➔</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Music Concert -->
+        <div class="aura-event-card">
+          <div class="card-media-wrapper">
+            <div style="width:100%; height:100%; background:linear-gradient(135deg, #064E3B 0%, #047857 50%, #10B981 100%); display:flex; align-items:center; justify-content:center; color:#FFFFFF; font-family:var(--font-display); font-size:18px; font-weight:800; text-align:center; padding:16px;">
+              ACOUSTIC<br>SUNDOWNER
+            </div>
+            <div class="card-scrim"></div>
+            <div class="card-top-badges">
+              <span class="badge-pill">Popular</span>
+              <button class="heart-btn" title="Save to Shortlist">♡</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre-row">
+              <span>LIVE MUSIC</span>
+              <span style="color:var(--color-warning);">★ 4.7</span>
+            </div>
+            <div class="card-title">Kizhakku Live Acoustic Sundowner</div>
+            <div class="card-meta-detail">📅 Sun, 25 Oct • 6:00 PM</div>
+            <div class="card-meta-detail">📍 The Bay, Besant Nagar</div>
+            <div class="card-footer">
+              <div>
+                <span class="all-in-price">₹350</span>
+                <span class="all-in-tag">All-in</span>
+              </div>
+              <button class="btn btn-primary" style="padding:6px 14px; font-size:12px; min-height:36px;">Book ➔</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: DIGITAL TICKET BOARDING PASS & PRICE MATH -->
+    <section class="ds-section">
+      <div class="ds-section-title">
+        <span>6. Digital Ticket Pass & Transparent Math</span>
+        <span class="tag">Post-Booking Assurance</span>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+        <!-- Boarding Pass -->
+        <div class="boarding-pass-showcase" style="flex:1; min-width:300px;">
+          <div class="pass-header">
+            <span style="font-size:12px; font-weight:700; letter-spacing:0.04em;">DIGITAL BOARDING PASS</span>
+            <span style="font-size:11px; background:rgba(0,0,0,0.25); padding:2px 8px; border-radius:4px; font-family:monospace;">#EVT-8942-CHN</span>
+          </div>
+          <div class="pass-body">
+            <div style="font-family:var(--font-display); font-size:17px; font-weight:800; line-height:1.25;">Beginner Wheel Pottery Masterclass</div>
+            <div style="font-size:12px; color:var(--color-text-secondary); margin-top:4px;">Artisan Studio, 14 East Mada St, Mylapore</div>
+
+            <div class="perforation-divider">
+              <div class="perf-circle left"></div>
+              <div class="perf-dash"></div>
+              <div class="perf-circle right"></div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:11px;">
+              <div>
+                <span style="color:var(--color-text-muted); display:block;">DATE & TIME:</span>
+                <strong style="color:var(--color-text-primary);">Sat, 24 Oct • 10:00 AM</strong>
+              </div>
+              <div>
+                <span style="color:var(--color-text-muted); display:block;">SESSION TIER:</span>
+                <strong style="color:var(--color-text-primary);">Standard Pass (2 Qty)</strong>
+              </div>
+              <div>
+                <span style="color:var(--color-text-muted); display:block;">ATTENDEE:</span>
+                <strong style="color:var(--color-text-primary);">Aravind Kumar + 1</strong>
+              </div>
+              <div>
+                <span style="color:var(--color-text-muted); display:block;">STATION:</span>
+                <strong style="color:var(--color-text-primary);">Studio Bay 2 • Row B</strong>
+              </div>
+            </div>
+
+            <!-- Dynamic QR Code Container -->
+            <div style="width:130px; height:130px; margin:14px auto 8px auto; border:2px solid var(--color-border-strong); padding:8px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#FFFFFF;">
+              <div style="width:100%; height:100%; background-image:radial-gradient(#0F172A 2px, transparent 2px); background-size:8px 8px;"></div>
+            </div>
+            <div style="text-align:center; font-size:11px; color:var(--color-success); font-weight:700;">
+              ● Confirmed & Cached Offline
+            </div>
+          </div>
+        </div>
+
+        <!-- Transparent Math Card -->
+        <div style="flex:1; min-width:300px; background:var(--color-bg-muted); border-radius:var(--radius-lg); padding:20px; border:1px solid var(--color-border-subtle);">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">Radical Transparent Math Card</div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--color-text-secondary);">Base Ticket Price (2 x ₹750)</span>
+              <strong>₹1,500</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--color-text-secondary);">Platform Convenience Fee</span>
+              <strong>₹100</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; color:var(--color-success);">
+              <span>First Booking Discount (WELCOME100)</span>
+              <strong>-₹100</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--color-text-secondary);">Applicable GST (18% on fees)</span>
+              <strong>₹18</strong>
+            </div>
+            <div style="border-top:2px solid var(--color-border-default); padding-top:10px; display:flex; justify-content:space-between; font-family:var(--font-display); font-size:16px; font-weight:800;">
+              <span>Total Payable Amount</span>
+              <span style="color:var(--color-primary);">₹1,518</span>
+            </div>
+            <div style="background:var(--color-bg-surface); padding:8px; border-radius:var(--radius-sm); font-size:11px; color:var(--color-text-secondary); text-align:center; margin-top:8px;">
+              🛡️ Zero hidden charges. Guaranteed final price.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-label').textContent = next === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+  </script>
+
+</body>
+</html>
