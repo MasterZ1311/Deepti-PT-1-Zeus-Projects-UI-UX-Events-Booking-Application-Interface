@@ -20,6 +20,23 @@
 
 ---
 
+## 📖 Master Reading & Viva Defense Manual (Read Before Explaining!)
+
+> **⭐ Crucial Academic Guide:** Before explaining, presenting, or defending this project to evaluators, mentors, or review panels, read the definitive master accountability manual:  
+> 👉 [**`docs/READ_BEFORE_EXPLAINING_ACCOUNTABILITY_MANUAL.md`**](./docs/READ_BEFORE_EXPLAINING_ACCOUNTABILITY_MANUAL.md)  
+> 
+> **What this manual guarantees:**
+> - **60-Second Elevator Pitch:** How to summarize the project and problem in 1 minute.
+> - **Complete Repository Inventory:** Detailed breakdown of every single file, line count, and purpose.
+> - **Technical Architecture:** Pure vanilla web engineering, reactive state machine, and hardware frame simulation.
+> - **Screen-by-Screen UX Rationale:** Why each of the 8 high-fidelity and 11 wireframe screens was designed this way.
+> - **15 Anticipated Viva Q&A:** Word-for-word high-scoring answers to tough examiner questions.
+> - **3-Minute Live Demonstration Script:** The exact 3 golden screens to demonstrate live.
+> 
+> Explore the complete documentation hub in the [**`docs/`**](./docs/README.md) directory.
+
+---
+
 ## 🌟 Core UX Innovations & Design Pillars
 
 1. **Upfront All-In Price Transparency:**
@@ -114,9 +131,9 @@ python -m http.server 5173
 ## 📂 Repository File Structure
 
 ```
-├── .gitignore                                          # Git ignore configurations
-├── LICENSE                                             # MIT License
-├── README.md                                           # Project overview & documentation
+├── docs/                                               # 📁 Comprehensive Documentation Hub
+│   ├── README.md                                       # Documentation directory index
+│   └── READ_BEFORE_EXPLAINING_ACCOUNTABILITY_MANUAL.md # ⭐ Master Viva & Accountability Guide
 │
 ├── RESEARCH_AND_UX_SPECIFICATION.md                    # Milestone 1: Competitor analysis & UX principles
 ├── INFORMATION_ARCHITECTURE_AND_USER_JOURNEYS.md       # Milestone 2: Personas, JTBD & Flows A-G
